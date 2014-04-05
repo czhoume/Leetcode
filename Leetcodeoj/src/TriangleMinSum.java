@@ -6,7 +6,7 @@ public class TriangleMinSum {
         s2.add(triangle.get(0).get(0));
         for(int i=1; i< triangle.size(); i++){
         	ArrayList<Integer> tmp=triangle.get(i);
-        	if(i%2==0){
+        	if(i%2==1){
         		s1.clear();
         		for(int j=0; j<tmp.size(); j++){
         			if(j==0){
@@ -33,5 +33,11 @@ public class TriangleMinSum {
         	}
         }
         ArrayList<Integer> bot = (triangle.size()%2==0)?s1:s2;
+        min=bot.get(0);
+        for(int sum : bot){
+        	if(sum<min)
+        		min=sum;
+        }
+        return min;
     }
 }
